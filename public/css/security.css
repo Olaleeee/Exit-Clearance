@@ -1,0 +1,339 @@
+/* Navbar */
+.security-navbar {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  width: 100%;
+}
+
+.security-container {
+  font-family: 'Bricolage Grotesque';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.security {
+  color: #2d3748;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+/* Search Input */
+.search-input-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 20px 10px 40px;
+  border: 1px solid #cbd5e0;
+  border-radius: 25px;
+  font-size: 14px;
+  background: #f7fafc;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-icon-container {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  fill: #718096;
+}
+
+/* Logout Button */
+.logout-btn {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn:hover {
+  background: #f7fafc;
+  transform: scale(1.1);
+}
+
+.logout-btn svg {
+  fill: #4a5568;
+}
+
+/* Table Container */
+#exitFormsTable {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  margin: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: block;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+/* Table Header */
+.exitFormsHeader {
+  display: grid;
+  grid-template-columns: 200px repeat(8, 1fr);
+  padding: 15px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.exitFormsHeader p {
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Table Rows */
+.new-row {
+  display: grid;
+  grid-template-columns: 200px repeat(8, 1fr);
+  border-bottom: 1px solid #e2e8f0;
+  transition: background 0.2s ease;
+}
+
+.new-row:hover {
+  background: #f8fafc;
+}
+
+.new-row p {
+  padding: 12px 5px;
+  text-align: center;
+  font-size: 13px;
+  border-right: 1px solid #e2e8f0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-row p:last-child {
+  border-right: none;
+}
+
+/* Status colors */
+.new-row p:nth-child(7) {
+  /* Status column */
+  font-weight: bold;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.new-row p:nth-child(7):contains('Approved') {
+  background: #d4edda;
+  color: #155724;
+}
+
+.new-row p:nth-child(7):contains('Pending') {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.new-row p:nth-child(7):contains('Rejected') {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.new-row p:nth-child(7):contains('Checked Out') {
+  background: #cce5ff;
+  color: #004085;
+}
+
+/* No Results Message */
+.no-result::before {
+  content: 'No Student Found';
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: #718096;
+  font-size: 16px;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .exitFormsHeader,
+  .new-row {
+    grid-template-columns: 180px repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .exitFormsHeader,
+  .new-row {
+    grid-template-columns: 160px repeat(8, 1fr);
+  }
+
+  .exitFormsHeader p,
+  .new-row p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .security-container {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .security {
+    order: 1;
+  }
+
+  .search-input-container {
+    order: 3;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .logout-btn {
+    order: 2;
+  }
+
+  #exitFormsTable {
+    margin: 15px;
+  }
+
+  .exitFormsHeader,
+  .new-row {
+    grid-template-columns: 150px repeat(8, 1fr);
+    min-width: 1200px;
+  }
+
+  /* Horizontal scroll on small screens */
+  #exitFormsTable {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .security-navbar {
+    height: auto;
+    padding: 15px;
+  }
+
+  .security {
+    font-size: 18px;
+  }
+
+  .exitFormsHeader p {
+    padding: 8px 3px;
+    font-size: 11px;
+  }
+
+  .new-row p {
+    padding: 10px 3px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .security {
+    font-size: 16px;
+  }
+
+  .search-input {
+    font-size: 13px;
+    padding: 8px 15px 8px 35px;
+  }
+
+  .search-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .logout-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #exitFormsTable {
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  .exitFormsHeader,
+  .new-row {
+    grid-template-columns: 140px repeat(8, 1fr);
+  }
+}
+
+/* Status classes for JavaScript (add these dynamically) */
+.status-approved {
+  background: #d4edda !important;
+  color: #155724 !important;
+}
+
+.status-pending {
+  background: #fff3cd !important;
+  color: #856404 !important;
+}
+
+.status-rejected {
+  background: #f8d7da !important;
+  color: #721c24 !important;
+}
+
+.status-checkedout {
+  background: #cce5ff !important;
+  color: #004085 !important;
+}
+
+/* Scrollbar styling */
+#exitFormsTable::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#exitFormsTable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#exitFormsTable::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+#exitFormsTable::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}

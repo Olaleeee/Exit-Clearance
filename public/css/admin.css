@@ -1,0 +1,177 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bricolage Grotesque';
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: white;
+  margin: 20px 0 30px 0;
+  font-size: 28px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Container */
+#exitFormsTable {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-collapse: collapse;
+}
+
+/* Table Header */
+#exitFormsTable thead {
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+#exitFormsTable th {
+  padding: 15px;
+  color: white;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#exitFormsTable th:first-child {
+  border-top-left-radius: 10px;
+}
+
+#exitFormsTable th:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* Table Body */
+#exitFormsTable tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease;
+}
+
+#exitFormsTable tbody tr:hover {
+  background: #f8f9fa;
+}
+
+#exitFormsTable td {
+  padding: 12px 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+/* Status colors */
+#exitFormsTable td:nth-child(7) {
+  /* Status column */
+  font-weight: 600;
+}
+
+#exitFormsTable td:nth-child(7):contains('Approved') {
+  color: #4caf50;
+}
+
+#exitFormsTable td:nth-child(7):contains('Pending') {
+  color: #ff9800;
+}
+
+#exitFormsTable td:nth-child(7):contains('Rejected') {
+  color: #f44336;
+}
+
+/* Action Buttons */
+button {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 2px;
+}
+
+button.approve {
+  background: linear-gradient(to right, #4caf50, #45a049);
+  color: white;
+}
+
+button.reject {
+  background: linear-gradient(to right, #f44336, #d32f2f);
+  color: white;
+}
+
+button.approve:hover {
+  background: linear-gradient(to right, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+button.reject:hover {
+  background: linear-gradient(to right, #d32f2f, #b71c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 15px 0 20px 0;
+  }
+
+  #exitFormsTable {
+    font-size: 14px;
+  }
+
+  #exitFormsTable th,
+  #exitFormsTable td {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 992px) {
+  #exitFormsTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin: 10px 0 15px 0;
+  }
+
+  #exitFormsTable {
+    font-size: 13px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

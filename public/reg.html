@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration - Crescent University</title>
+    <link rel="stylesheet" href="./css/reg.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/notyf.min.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a
+        class="sign-in"
+        href="login.html"
+        style="text-decoration: none"
+        type="button"
+        >SIGN IN</a
+      >
+    </header>
+
+    <main class="main-content">
+      <section class="registration-section">
+        <div class="first-container">
+          <div class="logo-container">
+            <img
+              src="./assets/crescent-university-logo.png"
+              alt="Crescent University Logo"
+              class="logo"
+            />
+          </div>
+
+          <div class="sub-container">
+            <h1 class="heading-1">Create Your Exit Account</h1>
+
+            <form id="loginForm" class="registration-form" action="">
+              <div class="form-grid">
+                <div class="form-group name-group">
+                  <div class="form-field">
+                    <label for="Fn" class="form-label">First Name</label>
+                    <input
+                      type="text"
+                      id="Fn"
+                      class="form-input"
+                      placeholder="Enter your first name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="Ln" class="form-label">Last Name</label>
+                    <input
+                      type="text"
+                      id="Ln"
+                      class="form-input"
+                      placeholder="Enter your last name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-field full-width">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-input"
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-field full-width">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-input"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <div class="form-field full-width">
+                  <label for="confirmPassword" class="form-label"
+                    >Confirm Password</label
+                  >
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    class="form-input"
+                    placeholder="Confirm your password"
+                    required
+                  />
+                </div>
+
+                <div class="form-field full-width">
+                  <label for="no" class="form-label">Phone Number</label>
+                  <input
+                    type="number"
+                    id="no"
+                    class="form-input"
+                    placeholder="Phone number"
+                    required
+                    value=""
+                  />
+                </div>
+
+                <div class="form-field full-width">
+                  <label for="role" class="form-label">Select Role</label>
+                  <select name="Role" id="role" class="form-select" required>
+                    <option value="">Select a role</option>
+                    <option value="Student">Student</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Security">Security</option>
+                  </select>
+                </div>
+
+                <div class="form-actions full-width">
+                  <button type="submit" class="submit btn-primary">
+                    Register
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/reg.js"></script>
+  </body>
+</html>

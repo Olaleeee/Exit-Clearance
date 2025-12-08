@@ -1,0 +1,280 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bricolage Grotesque';
+  background: linear-gradient(135deg, #092089 0%, #2f0b52 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main Container */
+.container {
+  background: linear-gradient(135deg, #092089 0%, #2f0b52 100%);
+
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Form Header */
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Labels and Inputs */
+.fsection {
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.one {
+  width: calc(100% - 130px);
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.one:focus {
+  outline: none;
+  border-color: #0056cc;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 86, 204, 0.2);
+}
+
+/* Submit Button */
+button {
+  background: #0056cc;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #0047b3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Side Display Panel */
+.display {
+  position: fixed;
+  top: 20px;
+  right: 15%;
+  background: linear-gradient(135deg, #092089 0%, #2f0b52 100%);
+  color: black;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.js-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.js-email {
+  font-size: 14px;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.logout {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.logout svg {
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.logout svg:hover {
+  transform: scale(1.1);
+}
+
+/* Status Display */
+#statusDisplay {
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+/* Status Colors */
+.status-pending {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status-approved {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-rejected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.js-status {
+  font-weight: bold;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  background: white;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  padding: 25px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.popup p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.popup button {
+  margin: 0 10px;
+  min-width: 80px;
+}
+
+.popup button.yes {
+  background: #dc3545;
+}
+
+.popup button.yes:hover {
+  background: #c82333;
+}
+
+.popup button.no {
+  background: #6c757d;
+}
+
+.popup button.no:hover {
+  background: #5a6268;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .display {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  label {
+    width: 100px;
+    font-size: 14px;
+  }
+
+  .one {
+    width: calc(100% - 110px);
+    height: 38px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .display {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .one {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .popup {
+    width: 90%;
+  }
+}
