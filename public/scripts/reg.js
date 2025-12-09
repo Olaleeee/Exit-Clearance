@@ -43,6 +43,19 @@ function setupFormValidation() {
  */
 async function handleRegistration(event) {
   event.preventDefault();
+  
+  const btnSignup = document.querySelector('button.signup');
+  const makeVisible = function (isVisible) {
+  if(!btnSignup) return;
+  if (!isVisible) {
+    btnSignup.style.pointerEvents = 'none';
+    btnSignup.innerHTML = '...loading';
+  }
+  if (isVisible) {
+    btnSignup.style.pointerEvents = 'none';
+    btnSignup.innerHTML = 'login';
+  }
+};
 
   // Collect form data
   const formData = {
@@ -61,12 +74,18 @@ async function handleRegistration(event) {
   }
 
   try {
+     //disable btn
+    makeVisible(false);
+    
     // Make registration request
     const data = await AppUtils.apiRequest('/users/signup', {
       method: 'POST',
       body: JSON.stringify(formData),
     });
 
+     //activate btn
+    makeVisible(true);
+    
     // Show success message
     const redirectRole = formData.role.toLowerCase();
     AppUtils.showSuccess(
@@ -88,6 +107,8 @@ async function handleRegistration(event) {
       window.location.href = redirectPage;
     }, 1500);
   } catch (error) {
+      //activate btn
+    makeVisible(true);
     AppUtils.showError(error.message || 'Registration failed');
   }
 }
@@ -140,3 +161,4 @@ function validateRegistrationData(data) {
 
   return true;
 }
+
