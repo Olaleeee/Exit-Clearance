@@ -46,17 +46,17 @@ async function handleLogin(event) {
 
 const btnLogin = document.querySelector('button.login');
 const makeVisible = function (isVisible) {
-  if (btnLogin && !isVisible) {
-    btnLogin.disabled = true;
+  if(!btnLogin) return;
+  if (!isVisible) {
+    btnLogin.style.pointerEvents = 'none';
     btnLogin.innerHTML = '...loading';
   }
-  if (btnLogin && isVisible) {
-    btnLogin.disabled = false;
+  if (isVisible) {
+    btnLogin.style.pointerEvents = 'none';
     btnLogin.innerHTML = 'login';
   }
 };
   
-
   const email = document.querySelector('.email').value.trim();
   const password = document.querySelector('.password').value.trim();
   const role = document.querySelector('.role').value;
@@ -123,6 +123,7 @@ const makeVisible = function (isVisible) {
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
 
 
 
