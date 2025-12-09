@@ -44,16 +44,18 @@ function setupFormValidation() {
 async function handleRegistration(event) {
   event.preventDefault();
   
-  const btnSignup = document.querySelector('button.submit');
-  const makeVisible = function (isVisible) {
+const btnSignup = document.querySelector('button.submit');
+const makeVisible = function (isVisible) {
   if(!btnSignup) return;
   if (!isVisible) {
     btnSignup.style.pointerEvents = 'none';
-    btnSignup.innerHTML = '...loading';
+    btnSignup.style.opacity = '0.4';
+    btnSignup.innerHTML = 'Submitting...';
   }
   if (isVisible) {
-    btnSignup.style.pointerEvents = 'none';
-    btnSignup.innerHTML = 'login';
+    btnSignup.style.pointerEvents = 'auto';
+    btnSignup.style.opacity = '1'
+    btnSignup.innerHTML = 'Register';
   }
 };
 
@@ -161,5 +163,6 @@ function validateRegistrationData(data) {
 
   return true;
 }
+
 
 
