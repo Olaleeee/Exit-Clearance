@@ -47,7 +47,7 @@ const btnLogin = document.querySelector('button.login');
 const makeVisible = function (isVisible) {
   if (btnLogin && !isVisible) {
     btnLogin.disabled = true;
-    btnLogin?.innerHTML = '...loading';
+    btnLogin.innerHTML = '...loading';
   }
   if (btnLogin && isVisible) {
     btnLogin.disabled = false;
@@ -121,4 +121,5 @@ const makeVisible = function (isVisible) {
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
 
