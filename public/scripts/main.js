@@ -59,7 +59,7 @@ const authenticate = async function (requiredRole) {
  */
 const apiRequest = async function (endpoint, options = {}) {
   try {
-    const url = `http://127.0.0.1:5000/api/v1${endpoint}`;
+    const url = `https://exit-clearance-backend.onrender.com/api/v1${endpoint}`;
     const defaultHeaders = {
       'Content-Type': 'application/json',
     };
@@ -182,3 +182,4 @@ if (typeof window !== 'undefined') {
     formatDate,
   };
 }
+
