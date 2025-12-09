@@ -127,6 +127,19 @@ function setupForm() {
 async function handleFormSubmit(event) {
   event.preventDefault();
 
+  const btnSubmit = document.querySelector('button.exit-submit');
+
+const toggleBtn = function (isVisible) {
+  if (btnSubmit && !isVisible) {
+    btnSubmit.style.pointerEvents = 'none';
+    btnSubmit.innerHTML = '...loading';
+  }
+  if (btnSubmit && isVisible) {
+    btnSubmit.style.pointerEvents = 'none';
+    btnSubmit.innerHTML = 'login';
+  }
+};
+
   if (!userToken) {
     AppUtils.showError('Please login again');
     window.location.href = 'login.html';
@@ -178,11 +191,14 @@ async function handleFormSubmit(event) {
 
   try {
     // Submit form
+      //disable btn
+    makeVisible(false);
     const data = await AppUtils.apiRequest('/users/submit-form', {
       method: 'POST',
       body: JSON.stringify(formData),
     });
 
+    makeVisible(true);
     AppUtils.showSuccess(data.message || 'Form submitted successfully!');
 
     // Refresh user profile to update status
@@ -197,6 +213,7 @@ async function handleFormSubmit(event) {
     document.querySelector('.Purpose').value = '';
     document.querySelector('.number').value = '';
   } catch (error) {
+    makeVisible(true);
     AppUtils.showError(error.message || 'Failed to submit form');
   }
 }
@@ -211,5 +228,6 @@ function handleLogout() {
     window.location.href = 'login.html';
   }, 1000);
 }
+
 
 
