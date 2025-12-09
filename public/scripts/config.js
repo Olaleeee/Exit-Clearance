@@ -418,7 +418,7 @@ const notyfConfig = {
 
 // API configuration
 const API_CONFIG = {
-  BASE_URL: 'http://127.0.0.1:5000/api/v1',
+  BASE_URL: 'https://exit-clearance-backend.onrender.com',
   ENDPOINTS: {
     LOGIN: '/users/login',
     SIGNUP: '/users/signup',
@@ -430,3 +430,4 @@ const API_CONFIG = {
 
 let notyf;
 notyf = new Notyf(notyfConfig);
+
