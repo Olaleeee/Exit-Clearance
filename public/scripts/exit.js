@@ -145,6 +145,7 @@ async function handleFormSubmit(event) {
     date: document.querySelector('.date').value,
     parentNo: document.querySelector('.number').value.trim(),
     status: 'Pending',
+    locale: navigator.languages
   };
 
   // Validate required fields
@@ -210,3 +211,4 @@ function handleLogout() {
     window.location.href = 'login.html';
   }, 1000);
 }
+
