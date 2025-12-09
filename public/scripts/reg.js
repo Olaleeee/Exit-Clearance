@@ -44,7 +44,7 @@ function setupFormValidation() {
 async function handleRegistration(event) {
   event.preventDefault();
   
-  const btnSignup = document.querySelector('button.signup');
+  const btnSignup = document.querySelector('button.submit');
   const makeVisible = function (isVisible) {
   if(!btnSignup) return;
   if (!isVisible) {
@@ -161,4 +161,5 @@ function validateRegistrationData(data) {
 
   return true;
 }
+
 
