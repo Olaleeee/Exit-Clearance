@@ -42,6 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {Event} event - Form submit event
  */
 async function handleLogin(event) {
+
+const btnLogin = document.querySelector('button.login');
+const makeVisible = function (isVisible) {
+  if (btnLogin && !isVisible) {
+    btnLogin.disabled = true;
+    btnLogin?.innerHTML = '...loading';
+  }
+  if (btnLogin && isVisible) {
+    btnLogin.disabled = false;
+    btnLogin?.innerHTML = 'login';
+  }
+};
+  
   event.preventDefault();
 
   const email = document.querySelector('.email').value.trim();
@@ -68,11 +81,17 @@ async function handleLogin(event) {
       localStorage.removeItem('rememberedEmail');
     }
 
+    //deactivate btn
+    makeVisible(false);
+
     // Make login request
     const data = await AppUtils.apiRequest('/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password, role }),
     });
+
+    //activate btn
+    makeVisible(true);
 
     // Store token
     localStorage.setItem('token', data.data.token);
@@ -102,3 +121,4 @@ async function handleLogin(event) {
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
