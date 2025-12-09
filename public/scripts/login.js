@@ -49,10 +49,12 @@ const makeVisible = function (isVisible) {
   if(!btnLogin) return;
   if (!isVisible) {
     btnLogin.style.pointerEvents = 'none';
+    btnLogin.style.opacity = '0';
     btnLogin.innerHTML = 'authenticating...';
   }
   if (isVisible) {
     btnLogin.style.pointerEvents = 'auto';
+    btnLogin.style.opacity = '1'
     btnLogin.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
   }
 };
@@ -123,6 +125,7 @@ const makeVisible = function (isVisible) {
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
 
 
 
