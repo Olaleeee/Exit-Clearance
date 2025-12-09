@@ -127,19 +127,21 @@ function setupForm() {
 async function handleFormSubmit(event) {
   event.preventDefault();
 
-  const btnSubmit = document.querySelector('button.exit-submit');
-
-const toggleBtn = function (isVisible) {
-  if (btnSubmit && !isVisible) {
+const btnSubmit = document.querySelector('button.exit-submit');
+const makeVisible = function (isVisible) {
+  if(!btnSubmit) return;
+  if (!isVisible) {
     btnSubmit.style.pointerEvents = 'none';
-    btnSubmit.innerHTML = '...loading';
+    btnSubmit.style.opacity = '0.4';
+    btnSubmit.innerHTML = 'Submitting...';
   }
-  if (btnSubmit && isVisible) {
-    btnSubmit.style.pointerEvents = 'none';
-    btnSubmit.innerHTML = 'login';
+  if (isVisible) {
+    btnSubmit.style.pointerEvents = 'auto';
+    btnSubmit.style.opacity = '1'
+    btnSubmit.innerHTML = 'Submit';
   }
 };
-
+  
   if (!userToken) {
     AppUtils.showError('Please login again');
     window.location.href = 'login.html';
@@ -228,6 +230,7 @@ function handleLogout() {
     window.location.href = 'login.html';
   }, 1000);
 }
+
 
 
 
