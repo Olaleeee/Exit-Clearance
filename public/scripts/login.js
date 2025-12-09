@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {Event} event - Form submit event
  */
 async function handleLogin(event) {
+  event.preventDefault();
 
 const btnLogin = document.querySelector('button.login');
 const makeVisible = function (isVisible) {
@@ -55,7 +56,6 @@ const makeVisible = function (isVisible) {
   }
 };
   
-  event.preventDefault();
 
   const email = document.querySelector('.email').value.trim();
   const password = document.querySelector('.password').value.trim();
@@ -118,9 +118,12 @@ const makeVisible = function (isVisible) {
       window.location.href = redirectPage;
     }, 1500);
   } catch (error) {
+     //activate btn
+    makeVisible(true);
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
 
 
 
