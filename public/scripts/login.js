@@ -51,7 +51,7 @@ const makeVisible = function (isVisible) {
   }
   if (btnLogin && isVisible) {
     btnLogin.disabled = false;
-    btnLogin?.innerHTML = 'login';
+    btnLogin.innerHTML = 'login';
   }
 };
   
@@ -121,5 +121,6 @@ const makeVisible = function (isVisible) {
     AppUtils.showError(error.message || 'Login failed. Please try again.');
   }
 }
+
 
 
